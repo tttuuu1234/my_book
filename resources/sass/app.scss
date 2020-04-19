@@ -6,3 +6,53 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+@import '~normalize.css';
+
+#app {
+  width: 1100px;
+  margin: 0 auto;
+}
+
+html {
+	height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-width: 600px;
+  min-height: 400px;
+}
+
+.github-icon {
+  font-size: 56px;
+}
+
+.login {
+	&-container {
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 400px;
+	}
+	&-title {
+		justify-content: center;
+	}
+	&-contents {
+		text-align: center;
+		padding-bottom: 16px;
+	}
+	&-icon {
+		margin-bottom: 16px;
+	}
+	&-button {
+		background-color:　#333333;
+		border-radius: 3px;
+		color: #fff;
+		padding: 8px;
+	}
+}
