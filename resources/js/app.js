@@ -10,7 +10,11 @@ window.Vue = require('vue');
 
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
+import VueAxios from 'vue-axios';
+import Axios from 'axios';
+
 Vue.use(Vuetify);
+Vue.use(VueAxios, Axios);
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,6 +29,7 @@ Vue.use(Vuetify);
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
+Vue.component('home-component', require('./components/HomeComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

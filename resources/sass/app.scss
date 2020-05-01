@@ -10,7 +10,7 @@
 @import '~normalize.css';
 
 #app {
-  width: 1100px;
+  width: 700px;
   margin: 0 auto;
 }
 
@@ -25,6 +25,10 @@ body {
   position: relative;
   min-width: 600px;
   min-height: 400px;
+}
+
+li {
+	list-style: none;
 }
 
 .github-icon {
@@ -54,5 +58,45 @@ body {
 		border-radius: 3px;
 		color: #fff;
 		padding: 8px;
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	&-search {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		&-box {
+			border: 1px solid;
+			border-radius: 5px;
+			margin-right: 8px;
+		}
+	}
+}
+
+.categories {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.category {
+	&-all {
+	  color: #dc143c;
+	}
+	&-front {
+	  color: #1e90ff;
+	}
+	&-back {
+	  color: #ff69b4;
+	}
+	&-infra {
+	  color: #ffa500;
+	}
+	&-other {
+    color: #000000
 	}
 }
