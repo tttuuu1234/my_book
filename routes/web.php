@@ -18,12 +18,14 @@ use Illuminate\Support\Facades\Route;
 
 // Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'admin'], function () {
     Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
     Route::get('login/github', 'Auth\GithubLoginController@redirectToGithub')->name('login.github');
     Route::get('/login/github/callback', 'Auth\GithubLoginController@handleProviderCallback')->name('login.github.callback');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
-    // Route::get('/top', '')
+
+    Route::get('/top', 'TopController@index')->name('index');
+    Route::get('/category', 'CategoryController@getCategories')->name('category');
+
+    Route::get('/home', 'HomeController@index')->name('home');
 });

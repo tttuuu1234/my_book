@@ -3,12 +3,9 @@
 namespace App\Http\Controllers\Admin\Auth;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Socialite;
 use App\Models\AdminUser;
-use Illuminate\Support\Facades\Auth;
 
 class GithubLoginController extends Controller
 {
@@ -58,6 +55,6 @@ class GithubLoginController extends Controller
 
         // ログイン
         auth()->login($adminUser);
-        return redirect()->to('/home');
+        return redirect()->to('/admin/home');
     }
 }
