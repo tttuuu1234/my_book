@@ -27,5 +27,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'admin'], fu
     Route::get('/top', 'TopController@index')->name('index');
     Route::get('/category', 'CategoryController@getCategories')->name('category');
 
+    Route::get('/book', 'BookController@searchBooks')->name('search.books');
+
     Route::get('/home', 'HomeController@index')->name('home');
 });

@@ -27,6 +27,7 @@ export default {
     async getCategories() {
       try {
         const response = await axios.get('/admin/category');
+        console.log(response);
         this.categories = response.data
       } catch (error) {
         console.log(error)

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Category;
 
 use App\Models\Category;
 
@@ -15,6 +15,7 @@ class CategoryRepository implements CategoryRepositoryInterface
     {
         $category = new Category();
         $categories = $category->all();
+
         return $categories;
     }
 }

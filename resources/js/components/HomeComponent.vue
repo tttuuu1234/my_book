@@ -2,12 +2,14 @@
   <div>
     <Header></Header>
     <Category></Category>
+    <BookLists></BookLists>
   </div>
 </template>
 
 <script>
 import Header from './HeaderComponent.vue'
 import Category from './CategoryComponent.vue'
+import BookLists from './BookListsComponent.vue'
 
 export default {
   created() {
@@ -20,7 +22,8 @@ export default {
   },
   components: {
     Header,
-    Category
+    Category,
+    BookLists
   },
   methods: {
     async getTopPage() {

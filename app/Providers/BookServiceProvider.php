@@ -3,10 +3,11 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Services\CategoryService;
-use App\Repositories\Category\CategoryRepository;
-use App\Repositories\Category\CategoryRepositoryInterface;
-class CategoryServiceProvider extends ServiceProvider
+use App\Services\BookService;
+use App\Repositories\Book\BookRepository;
+use App\Repositories\Book\BookRepositoryInterface;
+
+class BookServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -16,13 +17,13 @@ class CategoryServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            CategoryRepositoryInterface::class,
-            CategoryRepository::class
+            BookRepositoryInterface::class,
+            BookRepository::class
         );
 
         $this->app->bind(
-            'CategoryService',
-            CategoryService::class
+            'BookService',
+            BookService::class
         );
     }
 
