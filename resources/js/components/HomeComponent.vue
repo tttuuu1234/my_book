@@ -1,23 +1,27 @@
 <template>
   <div>
-    <Header></Header>
+    <Header
+      v-on:searchBooks="books = $event"
+      v-on:searchWord="searchWord = $event"
+    ></Header>
     <Category></Category>
-    <BookLists></BookLists>
+    <BookLists
+      :books = books
+      :searchWord = searchWord
+    ></BookLists>
   </div>
 </template>
 
 <script>
-import Header from './HeaderComponent.vue'
-import Category from './CategoryComponent.vue'
-import BookLists from './BookListsComponent.vue'
+import Header from "./HeaderComponent.vue"
+import Category from "./CategoryComponent.vue"
+import BookLists from "./BookListsComponent.vue"
 
 export default {
-  created() {
-    this.getTopPage()
-  },
   data() {
     return {
-      users: {}
+      books: [],
+      searchWord: ''
     }
   },
   components: {
@@ -26,14 +30,6 @@ export default {
     BookLists
   },
   methods: {
-    async getTopPage() {
-      try {
-        const response = await axios.get('/admin/top')
-        this.users = response.data
-      } catch (error) {
-        console.log(error)
-      }
-    }
   },
 }
 

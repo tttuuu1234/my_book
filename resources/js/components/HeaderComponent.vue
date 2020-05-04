@@ -22,14 +22,13 @@
 export default {
   data() {
     return {
-      'searchWord': '',
-      'books': []
+      searchWord: '',
+      books: []
     }
   },
   methods: {
     async searchBooks() {
       try {
-        console.log(this.searchWord)
         const response = await axios.get('/admin/book', {
             params:{
               searchWord: this.searchWord
@@ -37,10 +36,11 @@ export default {
           }
         );
         this.books = response.data
+        this.$emit("searchBooks", this.books)
+        this.$emit("searchWord", this.searchWord)
       } catch (error) {
         console.log(error)
       }
-
     }
   },
 }

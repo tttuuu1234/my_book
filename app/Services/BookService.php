@@ -14,9 +14,12 @@ class BookService
         $this->book_rep = $book_rep;
     }
 
-    public function searchBooks($searchWord)
+    public function searchBooks($searchWord, $page = 0)
     {
-        $books = $this->book_rep->googleSearchBooks($searchWord);
+        if ($page != 0) {
+            $page = $page - 1;
+        }
+        $books = $this->book_rep->googleSearchBooks($searchWord, $page);
         return $books;
     }
 }

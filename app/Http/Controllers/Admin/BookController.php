@@ -11,7 +11,11 @@ class BookController extends Controller
     public function searchBooks(Request $request)
     {
         $inputs = $request->all();
-        $books = BookService::searchBooks($inputs['searchWord']);
+        if (array_key_exists('page', $inputs)) {
+            $books = BookService::searchBooks($inputs['searchWord'], $inputs['page']);
+        } else {
+            $books = BookService::searchBooks($inputs['searchWord']);
+        }
 
         return $books;
     }
