@@ -6,6 +6,13 @@ use App\Models\Category;
 
 class CategoryRepository implements CategoryRepositoryInterface
 {
+    private $category;
+
+    public function __construct(Category $category)
+    {
+        $this->category = $category;
+    }
+
     /**
      * Category取得
      *
@@ -13,9 +20,12 @@ class CategoryRepository implements CategoryRepositoryInterface
      */
     public function getCategories()
     {
-        $category = new Category();
-        $categories = $category->all();
+        return $this->category->all();
 
-        return $categories;
+    }
+
+    public function getCategoryList()
+    {
+        return $this->category->where('id','<>', 1)->get();
     }
 }

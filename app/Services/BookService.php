@@ -20,6 +20,17 @@ class BookService
             $page = $page - 1;
         }
         $books = $this->book_rep->googleSearchBooks($searchWord, $page);
+
         return $books;
+    }
+
+    public function registerBooks($inputs)
+    {
+        $this->book_rep->registerBooks($inputs);
+    }
+
+    public function getBooks()
+    {
+        return $this->book_rep->getBooks();
     }
 }

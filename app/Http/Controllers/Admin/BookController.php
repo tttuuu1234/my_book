@@ -19,4 +19,15 @@ class BookController extends Controller
 
         return $books;
     }
+
+    public function registerBooks(Request $request)
+    {
+        $inputs = $request->all();
+        BookService::registerBooks($inputs['params']);
+    }
+
+    public function getBooks()
+    {
+        return BookService::getBooks();
+    }
 }

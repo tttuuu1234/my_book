@@ -15,7 +15,11 @@ class CategoryService
 
     public function getCategories()
     {
-        $categories = $this->category_rep->getCategories();
-        return $categories;
+        return $this->category_rep->getCategories();
+    }
+
+    public function getCategoryList()
+    {
+        return $this->category_rep->getCategoryList();
     }
 }

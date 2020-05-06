@@ -38,6 +38,7 @@ export default {
         this.books = response.data
         this.$emit("searchBooks", this.books)
         this.$emit("searchWord", this.searchWord)
+        this.$emit("searchResult", "searchResult")
       } catch (error) {
         console.log(error)
       }

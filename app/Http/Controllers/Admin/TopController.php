@@ -14,10 +14,6 @@ class TopController extends Controller
 
     public function index()
     {
-        $userInfo = [
-            'name' => 'つばさ',
-            'age' => '24'
-        ];
-        return $userInfo;
+        
     }
 }

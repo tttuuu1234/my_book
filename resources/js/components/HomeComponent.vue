@@ -1,33 +1,40 @@
 <template>
   <div>
     <Header
-      v-on:searchBooks="books = $event"
-      v-on:searchWord="searchWord = $event"
+      @searchBooks="books = $event"
+      @searchWord="searchWord = $event"
+      @searchResult="mode = $event"
     ></Header>
     <Category></Category>
-    <BookLists
+    <Top v-if="mode === 'index'"></Top>
+    <SearchResult
+      v-else-if="mode === 'searchResult'"
       :books = books
       :searchWord = searchWord
-    ></BookLists>
+      @changeMode="mode = $event"
+    ></SearchResult>
   </div>
 </template>
 
 <script>
 import Header from "./HeaderComponent.vue"
 import Category from "./CategoryComponent.vue"
-import BookLists from "./BookListsComponent.vue"
+import Top from "./TopComponent.vue"
+import SearchResult from "./SearchResultComponent"
 
 export default {
   data() {
     return {
       books: [],
-      searchWord: ''
+      searchWord: '',
+      mode: 'index'
     }
   },
   components: {
     Header,
     Category,
-    BookLists
+    Top,
+    SearchResult
   },
   methods: {
   },

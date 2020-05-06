@@ -12,4 +12,18 @@ interface BookRepositoryInterface
      * @return void
      */
     public function googleSearchBooks($searchWord, $page);
+
+    /**
+     * 本の登録
+     *
+     * @param array $inputs
+     */
+    public function registerBooks($inputs);
+
+    /**
+     * DBから登録した本を取得
+     *
+     * @return void
+     */
+    public function getBooks();
 }

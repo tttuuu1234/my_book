@@ -5,16 +5,17 @@ namespace App\Repositories\Book;
 use GuzzleHttp\Client;
 use function GuzzleHttp\json_decode;
 use Illuminate\Support\Facades\Log;
+use App\Models\Book;
 
 class BookRepository implements BookRepositoryInterface
 {
-    /**
-     * google書籍検索api:キーワードに該当する本を取得
-     *
-     * @param string $searchWord
-     * @param integer $page
-     * @return void
-     */
+    private $book;
+
+    public function __construct(Book $book)
+    {
+        $this->book = $book;
+    }
+
     public function googleSearchBooks($searchWord, $page)
     {
         $client = new Client();
@@ -31,8 +32,24 @@ class BookRepository implements BookRepositoryInterface
         $books = $searchResults->getBody()->getContents();
         $books = json_decode($books, true);
 
-        Log::debug('グーグルApi' . var_export($books, true));
-
         return $books;
     }
+
+    public function registerBooks($inputs)
+    {
+        foreach ($inputs['bookInfos'] as $bookInfo) {
+            $volumeInfo = $bookInfo['volumeInfo'];
+            $this->book->create([
+                'category_id' => $inputs['category']['id'],
+                'title' => $volumeInfo['title'],
+                'image_url' => $volumeInfo['imageLinks']['thumbnail']
+            ]);
+        }
+    }
+
+    public function getBooks()
+    {
+        return $this->book->get();
+    }
+
 }
