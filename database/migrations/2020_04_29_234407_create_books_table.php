@@ -18,6 +18,7 @@ class CreateBooksTable extends Migration
             $table->string('title');
             $table->string('image_url');
             $table->integer('category_id');
+            $table->string('link_url');
             $table->timestamps();
             $table->softDeletes();
         });

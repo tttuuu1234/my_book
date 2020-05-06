@@ -2,9 +2,9 @@
   <div class="d-flex flex-wrap justify-center aligin-center" three-line>
     <template v-for="book in books">
       <v-card class="book-image-container text-center" :key="book.id">
-        <!-- <a :href="" target="_blank"> -->
+        <a :href="book.link_url" target="_blank">
           <img class="book-image" :src="book.image_url">
-        <!-- </a> -->
+        </a>
       </v-card>
     </template>
   </div>

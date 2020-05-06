@@ -42,7 +42,8 @@ class BookRepository implements BookRepositoryInterface
             $this->book->create([
                 'category_id' => $inputs['category']['id'],
                 'title' => $volumeInfo['title'],
-                'image_url' => $volumeInfo['imageLinks']['thumbnail']
+                'image_url' => $volumeInfo['imageLinks']['thumbnail'],
+                'link_url' => $volumeInfo['infoLink']
             ]);
         }
     }
