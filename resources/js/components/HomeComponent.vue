@@ -5,8 +5,20 @@
       @searchWord="searchWord = $event"
       @searchResult="mode = $event"
     ></Header>
-    <Category></Category>
-    <Top v-if="mode === 'index'"></Top>
+    <Category
+      @categoryMatchBooks="books = $event"
+      @mode="mode = $event"
+    ></Category>
+    <Top
+      v-if="mode === 'index'"
+      :mode = mode
+      :categoryBooks= books
+    ></Top>
+    <Top
+      v-else-if="mode === 'categorySearched'"
+      :mode = mode
+      :categoryBooks = books
+    ></Top>
     <SearchResult
       v-else-if="mode === 'searchResult'"
       :books = books
@@ -27,7 +39,7 @@ export default {
     return {
       books: [],
       searchWord: '',
-      mode: 'index'
+      mode: 'index',
     }
   },
   components: {

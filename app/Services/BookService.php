@@ -33,4 +33,12 @@ class BookService
     {
         return $this->book_rep->getBooks();
     }
+
+    public function getCategoryMatchBooks($categoryId)
+    {
+        if ($categoryId === 1) {
+            return $this->book_rep->getBooks();
+        }
+        return $this->book_rep->getCategoryMatchBooks($categoryId);
+    }
 }

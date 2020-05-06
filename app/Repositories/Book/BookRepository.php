@@ -5,15 +5,17 @@ namespace App\Repositories\Book;
 use GuzzleHttp\Client;
 use function GuzzleHttp\json_decode;
 use Illuminate\Support\Facades\Log;
-use App\Models\Book;
+use App\Models\{Book, Category};
 
 class BookRepository implements BookRepositoryInterface
 {
     private $book;
+    private $category;
 
-    public function __construct(Book $book)
+    public function __construct(Book $book, Category $category)
     {
         $this->book = $book;
+        $this->category = $category;
     }
 
     public function googleSearchBooks($searchWord, $page)
@@ -51,6 +53,11 @@ class BookRepository implements BookRepositoryInterface
     public function getBooks()
     {
         return $this->book->get();
+    }
+
+    public function getCategoryMatchBooks($categoryId)
+    {
+        return $this->category->find($categoryId)->books()->get();
     }
 
 }

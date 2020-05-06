@@ -30,4 +30,10 @@ class BookController extends Controller
     {
         return BookService::getBooks();
     }
+
+    public function getCategoryMatchBooks(Request $request)
+    {
+        $inputs = $request->all();
+        return BookService::getCategoryMatchBooks(intval($inputs['category_id']));
+    }
 }

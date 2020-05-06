@@ -26,4 +26,12 @@ interface BookRepositoryInterface
      * @return void
      */
     public function getBooks();
+
+    /**
+     * CategoryIdに該当した登録してある本の取得
+     *
+     * @param integer $categoryId
+     * @return collection
+     */
+    public function getCategoryMatchBooks($categoryId);
 }

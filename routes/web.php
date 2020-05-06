@@ -30,6 +30,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'admin'], fu
 
     Route::get('/books', 'BookController@getBooks')->name('books');
     Route::get('/book', 'BookController@searchBooks')->name('search.books');
+    Route::get('/book/category', 'BookController@getCategoryMatchBooks')->name('category.match.books');
     Route::post('/book', 'BookController@registerBooks')->name('register.books');
 
     Route::get('/home', 'HomeController@index')->name('home');
