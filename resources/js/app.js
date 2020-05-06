@@ -12,6 +12,9 @@ import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import VueAxios from 'vue-axios';
 import Axios from 'axios';
+import vSelect from 'vue-select'
+import 'vue-select/dist/vue-select.css';
+import Paginate from 'vuejs-paginate';
 
 Vue.use(Vuetify);
 Vue.use(VueAxios, Axios);
@@ -30,6 +33,8 @@ Vue.use(VueAxios, Axios);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('login-component', require('./components/LoginComponent.vue').default);
 Vue.component('home-component', require('./components/HomeComponent.vue').default);
+Vue.component('v-select', vSelect);
+Vue.component('paginate', Paginate);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

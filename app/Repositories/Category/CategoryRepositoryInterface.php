@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Category;
 
 interface CategoryRepositoryInterface
 {
@@ -10,4 +10,12 @@ interface CategoryRepositoryInterface
      * @return collection
      */
     public function getCategories();
+
+    /**
+     * Select用のCategory取得
+     *
+     * @return collection
+     */
+    public function getCategoryList();
+
 }

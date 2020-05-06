@@ -12,4 +12,9 @@ class CategoryController extends Controller
     {
         return CategoryService::getCategories();
     }
+
+    public function getCategoryList()
+    {
+        return CategoryService::getCategoryList();
+    }
 }

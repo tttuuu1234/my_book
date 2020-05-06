@@ -1,5 +1,6 @@
 <?php
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\BookController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,8 +25,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'admin'], fu
     Route::get('/login/github/callback', 'Auth\GithubLoginController@handleProviderCallback')->name('login.github.callback');
     Route::post('/logout', 'Auth\LoginController@logout')->name('logout');
 
-    Route::get('/top', 'TopController@index')->name('index');
     Route::get('/category', 'CategoryController@getCategories')->name('category');
+    Route::get('/categoryList', 'CategoryController@getCategoryList')->name('category.list');
+
+    Route::get('/books', 'BookController@getBooks')->name('books');
+    Route::get('/book', 'BookController@searchBooks')->name('search.books');
+    Route::get('/book/category', 'BookController@getCategoryMatchBooks')->name('category.match.books');
+    Route::post('/book', 'BookController@registerBooks')->name('register.books');
 
     Route::get('/home', 'HomeController@index')->name('home');
 });
