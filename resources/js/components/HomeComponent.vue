@@ -47,9 +47,7 @@ export default {
     Category,
     Top,
     SearchResult
-  },
-  methods: {
-  },
+  }
 }
 
 </script>

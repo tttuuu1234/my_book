@@ -8,6 +8,7 @@
         <a :href="book.volumeInfo.infoLink" target="_blank">
           <img class="book-image" :src="book.volumeInfo.imageLinks.thumbnail">
         </a>
+        <p class="h6">{{ book.volumeInfo.title }}</p>
       </v-card>
     </template>
   </div>

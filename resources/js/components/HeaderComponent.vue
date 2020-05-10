@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1 class="header-title">MyBooks</h1>
+    <h1 class="header-title"> MyBooks</h1>
     <form>
       <div class="header-search">
         <div class="header-search-box">
@@ -10,9 +10,7 @@
             v-model="searchWord"
           >
         </div>
-        <button type="submit" @click.prevent="searchBooks()">
-          <i class="fas fa-search header-search-icon"></i>
-        </button>
+        <v-btn class="text-white" color="#64B5F6" @click="searchBooks()">検索</v-btn>
       </div>
     </form>
   </header>
