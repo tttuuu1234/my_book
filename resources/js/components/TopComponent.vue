@@ -6,6 +6,7 @@
           <a :href="book.link_url" target="_blank">
             <img class="book-image" :src="book.image_url">
           </a>
+          <p class="h6">{{ book.title }}</p>
         </v-card>
       </template>
     </div>
@@ -15,6 +16,7 @@
           <a :href="book.link_url" target="_blank">
             <img class="book-image" :src="book.image_url">
           </a>
+          <p class="h6">{{ book.volumeInfo.title }}</p>
         </v-card>
       </template>
     </div>

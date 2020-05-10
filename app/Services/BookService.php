@@ -3,7 +3,6 @@
 namespace App\Services;
 
 use App\Repositories\Book\BookRepositoryInterface;
-use function GuzzleHttp\json_decode;
 
 class BookService
 {
@@ -19,9 +18,22 @@ class BookService
         if ($page != 0) {
             $page = $page - 1;
         }
+
         $books = $this->book_rep->googleSearchBooks($searchWord, $page);
 
-        return $books;
+        $totalItems = $books['totalItems'];
+        $googleBooks['totalItems'] = $totalItems;
+
+        foreach ($books['items'] as $book) {
+            // 取得した本にimageLinksキーがあるか確認し、存在しなければno_image画像のパスを追加
+            if (!array_key_exists('imageLinks', $book['volumeInfo'])) {
+                $book['volumeInfo']['imageLinks']['thumbnail'] = '/storage/m_e_others_500.jpg';
+            }
+            // front側で本を表示させるために、itemsキーの直下に配列を追加
+            $googleBooks['items'][] = $book;
+        }
+
+        return $googleBooks;
     }
 
     public function registerBooks($inputs)

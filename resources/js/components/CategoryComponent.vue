@@ -1,6 +1,7 @@
 <template>
   <ul class="categories">
     <li
+      class="category"
       v-for="category in categories"
       :key="category.id"
     >
